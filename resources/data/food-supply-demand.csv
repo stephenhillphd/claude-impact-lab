@@ -1,0 +1,9 @@
+record_id,record_type,synthetic_organization,food_category,quantity,available_or_needed_by,storage_requirement,transport_available,service_area,status,confirmation_owner_type,is_synthetic
+REC-01,supply,Fictional Ridgeview Grocery Donation Program,fresh produce,200 lbs,2026-08-29,refrigerated,true,Fictional Ridgeview neighborhood,unconfirmed,donor coordinator,true
+REC-02,demand,Fictional Eastport Community Pantry,shelf-stable staples,150 boxes,2026-08-30,dry storage,false,Fictional Eastport district,unconfirmed,pantry coordinator,true
+REC-03,supply,Fictional Hollow Creek Bakery Surplus,bread and baked goods,80 loaves,2026-08-28,dry storage,true,Fictional Hollow Creek area,unconfirmed,donor coordinator,true
+REC-04,demand,Fictional Lincoln Heights After-School Program,ready-to-eat snacks,300 servings,2026-09-01,dry storage,false,Fictional Lincoln Heights schools,unconfirmed,program coordinator,true
+REC-05,supply,Fictional Birchfield Farmers Cooperative,fresh vegetables,500 lbs,2026-08-29,refrigerated,false,Fictional Birchfield and nearby,unconfirmed,donor coordinator,true
+REC-06,demand,Fictional Overlook Faith Kitchen,protein (canned or frozen),100 lbs,2026-08-31,frozen,false,Fictional Overlook corridor,unconfirmed,kitchen coordinator,true
+REC-07,supply,Fictional Rockridge School Cafeteria Surplus,prepared meals,120 meals,2026-08-28,refrigerated,true,Fictional Rockridge school zone,unconfirmed,donor coordinator,true
+REC-08,demand,Fictional Maple Ridge Senior Center,shelf-stable staples,90 boxes,2026-08-30,dry storage,false,Fictional Maple Ridge area,unconfirmed,program coordinator,true
