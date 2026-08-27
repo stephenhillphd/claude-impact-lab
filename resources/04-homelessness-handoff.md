@@ -13,7 +13,7 @@ Challenge brief: [../challenges/04-homelessness-handoff.md](../challenges/04-hom
 ## National sources
 
 - HUD PIT and HIC data: https://www.huduser.gov/portal/datasets/ahar.html
-- HUD Coordinated Entry Core Elements: https://files.hudexchange.info/resources/documents/Coordinated-Entry-Core-Elements.pdf
+- HUD Community Planning and Development notices (see CPD-17-01 for coordinated-entry requirements): https://www.hud.gov/hudclips/notices/cpd
 
 ## Synthetic dataset
 
