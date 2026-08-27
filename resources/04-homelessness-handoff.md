@@ -8,7 +8,7 @@ Challenge brief: [../challenges/04-homelessness-handoff.md](../challenges/04-hom
 - One Roof Coordinated Entry: https://www.oneroofonline.org/coordinated-entry
 - City community resources: https://cobcd.com/communityresources/
 - United Way 211: https://www.uwca.org/programs/211-call-center/
-- Birmingham 2025-2029 Consolidated Plan: https://cobcd.com/wp-content/uploads/2025/08/Birmingham_2025-2029-Con-Plan_Draft.pdf
+- Birmingham 2025-2029 Consolidated Plan (linked from the Action Plan page): https://cobcd.com/action-plan/
 
 ## National sources
 
