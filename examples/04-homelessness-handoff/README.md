@@ -9,8 +9,9 @@ advisory; needs shade and water; resource type is a cooling center).
 
 **To hand round:** [`birmingham-cooling-field-card.pdf`](birmingham-cooling-field-card.pdf)
 is the blank template, ready to print in a stack.
-[`what-happens-now.pdf`](what-happens-now.pdf) is an eleven-slide walkthrough of
-how this was built and what the research turned up.
+[`what-happens-now.pdf`](what-happens-now.pdf) is a six-slide setup for a live
+walkthrough: who it is for, the three things the city's list does not tell you,
+then straight into the artifact itself.
 
 > **The person is fictional. The cooling stations are real.**
 > `SCEN-01` comes from the event's synthetic dataset and describes nobody. The
