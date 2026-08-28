@@ -4,8 +4,8 @@ A completed run of the [30-minute quick start](../../resources/04-homelessness-h
 for Challenge 4, using scenario `SCEN-01` (adult sleeping outdoors during a heat
 advisory; needs shade and water; resource type is a cooling center).
 
-**Artifact:** [`heat-handoff-card.html`](heat-handoff-card.html) — open it in a browser,
-or view the [published version](https://claude.ai/code/artifact/c48e86a6-7370-434a-82e1-ad798942fb7b).
+**Artifact:** [`birmingham-heat-handoff.html`](birmingham-heat-handoff.html) — open it in a browser,
+or view the [published version](https://claude.ai/code/artifact/94ccf7a6-f9ac-4ce8-a9db-f4c2c8cfb091).
 
 > **The person is fictional. The cooling stations are real.**
 > `SCEN-01` comes from the event's synthetic dataset and describes nobody. The
@@ -79,16 +79,43 @@ Worth knowing if you build on the same sources:
 
 The card produces no handoff until someone has called 211 and recorded what they
 were told. The phone call is the artifact; everything else is the confirmed
-facts, written out twice:
+facts, written out three ways:
 
 | For | Contents |
 |---|---|
 | The responder's log | Structured summary, copy-to-clipboard. Owner, follow-up deadline, what was confirmed, what is still unknown, escalation path. |
-| The person being handed off | Plain language, large type, print to a handout. Where to go, until when, what to do if the door is locked. |
+| The person being handed off | Plain language, large type. Where to go, until when, what to do if the door is locked. |
+| **The field template** | A blank, printed in advance and filled in by hand on the street. See below. |
 
-Both are generated from the same confirmed fields, so the person-facing card
-cannot state anything the call did not establish. Unconfirmed items become "we
-could not check", never silence.
+The first two are generated from the same confirmed fields, so the person-facing
+card cannot state anything the call did not establish. Unconfirmed items become
+"we could not check", never silence.
+
+## The field template
+
+There is no printer on a sidewalk. The screen version above assumes an office —
+which is where the confirming phone call often happens, but not where the
+handoff does. So the page also produces a **blank template designed to be
+printed in a stack beforehand and filled in with a pen** while standing with
+someone.
+
+It is one sheet with a tear line across the middle:
+
+- **Top half — the volunteer keeps it.** The 211 numbers, the 95°F activation
+  rule, all eleven stations with addresses and hours in two columns, and
+  write-in blanks for open-until, checked-at, initials, and the follow-up time.
+  Stations are **circled, not transcribed** — faster, and an address cannot be
+  copied down wrong.
+- **Bottom half — torn off and handed over.** Three large ruled lines (go to,
+  address, open until) and, pre-printed, what to do if the door is locked.
+
+The part that matters: because the addresses and the 211 numbers are already
+printed on it, **the template works with no signal and a dead battery** — the
+two conditions the digital version cannot survive, and the two most likely to
+apply to a volunteer at the end of a shift in August.
+
+`Print blank templates` prints only the blank; the person card's `Print` button
+prints only that card. A plain <kbd>⌘P</kbd> defaults to the blank template.
 
 ## How it maps to the quick start
 
@@ -138,7 +165,7 @@ could not check", never silence.
 | `SCEN-01` scenario fields | [`homelessness-handoff-scenarios.csv`](../../resources/data/homelessness-handoff-scenarios.csv) — synthetic |
 
 The station data is transcribed verbatim and lives in one commented array near
-the top of the script in `heat-handoff-card.html`. Nothing is fetched at
+the top of the script in `birmingham-heat-handoff.html`. Nothing is fetched at
 runtime; the page makes no network calls at all.
 
 ## Rules compliance

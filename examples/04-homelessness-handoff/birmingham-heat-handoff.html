@@ -645,6 +645,92 @@
   .escalate ol { margin: 0; padding-left: 1.25rem; display: flex; flex-direction: column; gap: .5rem; }
   .escalate a { color: var(--stop); }
 
+  /* ---------- field template ---------- */
+  .field-intro {
+    border-top: 1px solid var(--rule);
+    margin-top: 1rem;
+    padding-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+  }
+  .field-intro h2 { font-family: var(--display); font-stretch: 75%; font-weight: 700;
+                    font-size: 1.625rem; margin: 0; }
+  .field-actions { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; margin-top: .25rem; }
+  .field-hint { font-size: .8125rem; color: var(--ink-muted); }
+
+  /* the sheet itself — always paper-like, in both themes */
+  #field-template {
+    margin-top: 1.5rem;
+    background: #FFFFFF;
+    color: #111111;
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    padding: 1.5rem 1.625rem;
+    font-family: var(--body);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: var(--shadow);
+  }
+  #field-template b { font-weight: 700; }
+
+  .ft-head { display: flex; flex-direction: column; gap: .1875rem;
+             border-bottom: 2px solid #111; padding-bottom: .5rem; }
+  .ft-title { font-family: var(--display); font-stretch: 75%; font-weight: 700; font-size: 1.375rem; }
+  .ft-rule { font-size: .8125rem; font-weight: 600; }
+
+  .ft-dial {
+    display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.25rem;
+    border: 2px solid #111; padding: .5rem .75rem;
+  }
+  .ft-dial > div:first-child { display: flex; align-items: baseline; gap: .5rem; }
+  .ft-dial-label { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+  .ft-dial-num { font-family: var(--display); font-stretch: 75%; font-weight: 700; font-size: 2rem; line-height: 1; }
+  .ft-dial-alts { display: flex; flex-wrap: wrap; gap: .125rem .875rem;
+                  font-family: var(--mono); font-size: .75rem; }
+
+  .ft-section { font-size: .75rem; font-weight: 700; text-transform: uppercase;
+                letter-spacing: .06em; display: block; margin-bottom: .5rem;
+                border-bottom: 1px solid #111; padding-bottom: .1875rem; }
+  .ft-stations { display: block; }
+  #ft-station-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .1875rem 1.25rem; }
+  @media (max-width: 34rem) { #ft-station-grid { grid-template-columns: 1fr; } }
+  .ft-st { font-size: .75rem; line-height: 1.35; display: flex; gap: .375rem; break-inside: avoid; }
+  .ft-st-o { flex: none; }
+  .ft-st-nm { font-weight: 700; }
+  .ft-st-lim { font-weight: 700; }
+  .ft-src { display: block; font-size: .625rem; margin-top: .5rem; }
+
+  .ft-record { display: block; }
+  .ft-lines { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; }
+  .ft-w { display: flex; align-items: baseline; gap: .375rem; font-size: .8125rem; font-weight: 600; }
+  .ft-w > i { display: block; border-bottom: 1px solid #111; min-width: 5.5rem; height: 1.15rem; flex: 1 1 auto; }
+  .ft-w-wide > i { min-width: 7rem; }
+  .ft-w-grow { flex: 1 1 12rem; }
+  .ft-checks { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin-top: .75rem;
+               font-size: .8125rem; font-weight: 600; align-items: baseline; }
+  .ft-warn { margin: .75rem 0 0; font-size: .75rem; border-left: 3px solid #111; padding-left: .625rem; }
+
+  .ft-tear {
+    border-top: 2px dashed #111;
+    text-align: center;
+    position: relative;
+    margin: .5rem 0;
+  }
+  .ft-tear span {
+    position: relative; top: -.6rem; background: #FFF; padding: 0 .5rem;
+    font-family: var(--mono); font-size: .625rem; text-transform: uppercase; letter-spacing: .08em;
+  }
+
+  .ft-give { display: flex; flex-direction: column; gap: .875rem; }
+  .ft-give-title { font-family: var(--display); font-stretch: 75%; font-weight: 700; font-size: 1.75rem; }
+  .ft-give-lines { display: flex; flex-direction: column; gap: .875rem; }
+  .ft-big { font-size: 1rem; }
+  .ft-big > i { height: 1.75rem; border-bottom: 2px solid #111; min-width: 10rem; }
+  .ft-give-foot p { margin: 0 0 .25rem; font-size: .9375rem; }
+  .ft-give-fine { font-size: .75rem; }
+
   /* ---------- notes ---------- */
   .notes {
     border-top: 1px solid var(--rule);
@@ -682,7 +768,7 @@
   /* ---------- print: the person-facing card only ---------- */
   @media print {
     .banner, header.masthead, .stage-num, .stage-head, .notes,
-    #stage-scenario, #stage-confirm, .card-head,
+    #stage-scenario, #stage-confirm, .card-head, .field-intro,
     .card-responder, .escalate, .fresh, button { display: none !important; }
     body { background: #fff; color: #000; font-size: 12pt; }
     .wrap { max-width: none; padding: 0; }
@@ -691,6 +777,19 @@
     .panel { border: 2px solid #000; box-shadow: none; }
     .cards { display: block; }
     .card-head { background: transparent; border-bottom: 1px solid #000; }
+
+    /* exactly one of the two outputs, chosen by the button that started the print */
+    :root[data-print="template"] .cards { display: none !important; }
+    :root[data-print="person"] #field-template { display: none !important; }
+
+    #field-template {
+      border: 0;
+      box-shadow: none;
+      padding: 0;
+      gap: .5rem;
+      break-inside: avoid;
+    }
+    .ft-tear span { background: #fff; }
   }
 </style>
 
@@ -1061,6 +1160,91 @@
     </section>
   </div>
 
+  <!-- ============ FIELD TEMPLATE ============ -->
+  <section class="field-intro">
+    <h2>In the field, there is no printer</h2>
+    <p class="stage-sub">
+      Everything above assumes a screen and a printer. On a sidewalk during a heat advisory you
+      have a phone, a pen, and whatever you brought with you. So print a stack of these before
+      you go out, and fill one in by hand while you are standing with someone.
+    </p>
+    <p class="stage-sub">
+      The blank carries the eleven station addresses and the 211 numbers already printed on it,
+      which means <b>it still works with no signal and a dead battery</b>. Circle the station
+      instead of writing the address — faster, and it cannot be transcribed wrong.
+    </p>
+    <div class="field-actions">
+      <button type="button" id="print-template" class="primary">Print blank templates</button>
+      <span class="field-hint">Prints the blank below, not the worked example.</span>
+    </div>
+  </section>
+
+  <div id="field-template">
+    <!-- ZONE A — the volunteer keeps this -->
+    <div class="ft-keep">
+      <div class="ft-head">
+        <span class="ft-title">Cooling handoff — field card</span>
+        <span class="ft-rule">Stations open only at a 95°F heat index. A listing is not a schedule.</span>
+      </div>
+
+      <div class="ft-dial">
+        <div>
+          <span class="ft-dial-label">Call or text before anyone travels</span>
+          <span class="ft-dial-num">211</span>
+        </div>
+        <div class="ft-dial-alts">
+          <span>or 888-421-1266</span>
+          <span>text ZIP to 898-211</span>
+          <span>TTY 7-1-1</span>
+          <span>free · 24/7</span>
+        </div>
+      </div>
+
+      <div class="ft-stations">
+        <span class="ft-section">Circle the one 211 confirms is open</span>
+        <div id="ft-station-grid"></div>
+        <span class="ft-src">City of Birmingham, birminghamal.gov/homelessness — retrieved 28 Aug 2026. No phone numbers published.</span>
+      </div>
+
+      <div class="ft-record">
+        <span class="ft-section">What 211 told you</span>
+        <div class="ft-lines">
+          <label class="ft-w"><span>Open until</span><i></i></label>
+          <label class="ft-w"><span>Checked at</span><i></i></label>
+          <label class="ft-w"><span>By (initials)</span><i></i></label>
+          <label class="ft-w ft-w-wide"><span>Follow up by (checked&nbsp;+&nbsp;2h)</span><i></i></label>
+        </div>
+        <div class="ft-checks">
+          <span>☐ Walk-in, no ID</span>
+          <span>☐ Water on site</span>
+          <span class="ft-w ft-w-grow"><span>☐ Serves only</span><i></i></span>
+        </div>
+        <p class="ft-warn">
+          If 211 cannot confirm a station is open — <b>do not send anyone.</b> Check
+          birminghamal.gov/homelessness, or stay with shade and water. Shelter goes through One Roof.
+        </p>
+      </div>
+    </div>
+
+    <!-- the tear line -->
+    <div class="ft-tear"><span>tear here — give the bottom half away</span></div>
+
+    <!-- ZONE B — handed to the person -->
+    <div class="ft-give">
+      <span class="ft-give-title">A cool place you can go today</span>
+      <div class="ft-give-lines">
+        <label class="ft-w ft-big"><span>Go to</span><i></i></label>
+        <label class="ft-w ft-big"><span>Address</span><i></i></label>
+        <label class="ft-w ft-big"><span>Open until</span><i></i></label>
+      </div>
+      <div class="ft-give-foot">
+        <p><b>If the door is locked, call or text 211.</b> It is free. Text your ZIP code to 898-211,
+          or call 888-421-1266. They can find you another open place.</p>
+        <p class="ft-give-fine">This is not a promise of a seat, and it is not a housing decision.</p>
+      </div>
+    </div>
+  </div>
+
   <div class="notes">
     <div>
       <h3>Why it is built this way</h3>
@@ -1080,6 +1264,10 @@
           confirmed. Unconfirmed items become "we could not check", never silence.</li>
         <li><b>Freshness expires.</b> The card ages visibly and marks itself expired at the 2-hour
           follow-up window, so a stale card is not quietly reused on a later shift.</li>
+        <li><b>Paper is the real delivery mechanism.</b> There is no printer on a sidewalk, so the
+          screen version is for the office and the blank template is for the field. Because the
+          template carries the addresses and the 211 numbers already printed, it works with no
+          signal and a dead battery — the two conditions the digital version cannot survive.</li>
         <li><b>No scoring.</b> Nothing here ranks, triages, or rates a person.</li>
       </ul>
     </div>
@@ -1486,6 +1674,34 @@
       sel.appendChild(optGroup);
     });
 
+    // the paper version of the same list — circled, not typed
+    var grid = $("ft-station-grid");
+    STATIONS.forEach(function (st) {
+      var row = document.createElement("div");
+      row.className = "ft-st";
+
+      var mark = document.createElement("span");
+      mark.className = "ft-st-o";
+      mark.textContent = "○";
+      row.appendChild(mark);
+
+      var body = document.createElement("span");
+      var nm = document.createElement("span");
+      nm.className = "ft-st-nm";
+      nm.textContent = st.name;
+      body.appendChild(nm);
+      body.appendChild(document.createTextNode(
+        " (" + st.area + ") · " + st.addr + " · " + st.hours));
+      if (st.limit) {
+        var lim = document.createElement("span");
+        lim.className = "ft-st-lim";
+        lim.textContent = " · " + st.limit.split(" — ")[0].toUpperCase();
+        body.appendChild(lim);
+      }
+      row.appendChild(body);
+      grid.appendChild(row);
+    });
+
     var extra = document.createElement("optgroup");
     extra.label = "Other";
     [["other", "Somewhere else 211 named (not on this list)"],
@@ -1532,7 +1748,21 @@
     } else { fail(); }
   });
 
-  $("print-btn").addEventListener("click", function () { window.print(); });
+  // Two things can be printed, and only one at a time. The button that starts
+  // the print says which; the attribute is cleared afterwards so a plain Cmd-P
+  // still falls back to the blank template, which is the one people actually
+  // need on paper.
+  function printAs(mode) {
+    document.documentElement.setAttribute("data-print", mode);
+    window.print();
+  }
+  window.addEventListener("afterprint", function () {
+    document.documentElement.setAttribute("data-print", "template");
+  });
+  document.documentElement.setAttribute("data-print", "template");
+
+  $("print-btn").addEventListener("click", function () { printAs("person"); });
+  $("print-template").addEventListener("click", function () { printAs("template"); });
 
   // recompute freshness as the clock moves
   setInterval(function () { if (!$("fresh-strip").hidden) render(); }, 30000);
