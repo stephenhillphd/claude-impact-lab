@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75,600;75,700;100,500&family=IBM+Plex+Mono:wght@500;600&family=Public+Sans:wght@400;600&display=swap">
+  <style>
+    body { margin: 0; font-family: "Public Sans", Helvetica, Arial, sans-serif; }
+    a { color: #C85A28; } a:hover { color: #9E4419; }
+  </style>
+</helmet>
+<div style="width: 1280px; height: 720px; background: #F2E8D5; color: #16211F; padding: 64px 80px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between;">
+
+  <span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #C85A28;">Finding one</span>
+
+  <div style="display: flex; gap: 70px; align-items: center;">
+    <div style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 28px;">
+      <h1 style="font-family: Archivo, Helvetica, sans-serif; font-stretch: 75%; font-weight: 700; font-size: 96px; line-height: 0.92; margin: 0;">The list is not a schedule</h1>
+      <p style="margin: 0; font-size: 24px; line-height: 1.45; color: #3D4A47; max-width: 620px;">Those eleven stations are <strong style="font-weight: 600;">activated</strong>, not standing. They open only when the temperature or heat index reaches 95&deg;F.</p>
+      <p style="margin: 0; font-size: 24px; line-height: 1.45; color: #3D4A47; max-width: 620px;">Being on the list and being open today are two different facts. A page that just showed the list would be promising eleven open doors.</p>
+    </div>
+
+    <div style="flex: 0 0 300px; background: #C85A28; color: #FCF3E4; padding: 42px 36px; display: flex; flex-direction: column; gap: 10px; align-items: center; text-align: center;">
+      <span style="font-family: Archivo, Helvetica, sans-serif; font-stretch: 75%; font-weight: 700; font-size: 130px; line-height: 0.9;">95&deg;</span>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.5;">Heat index<br>or the doors stay shut</span>
+    </div>
+  </div>
+
+  <p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 15px; color: #7C7565; border-top: 1px solid #D3C7AE; padding-top: 20px;">99&deg;F does not mean they are open. Crossing 95&deg; is what makes activation possible, not what confirms it &mdash; and an activation can begin later in the day. Somebody still has to check.</p>
+</div>
+</x-dc>
+</body>
+</html>

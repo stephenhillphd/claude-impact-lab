@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75,600;75,700;100,500&family=IBM+Plex+Mono:wght@500;600&family=Public+Sans:wght@400;600&display=swap">
+  <style>
+    body { margin: 0; font-family: "Public Sans", Helvetica, Arial, sans-serif; }
+    a { color: #C85A28; } a:hover { color: #9E4419; }
+  </style>
+</helmet>
+<div style="width: 1280px; height: 720px; background: #F2E8D5; color: #16211F; padding: 64px 80px; box-sizing: border-box; display: flex; flex-direction: column; gap: 34px;">
+
+  <div style="display: flex; flex-direction: column; gap: 14px;">
+    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #1F5F5C;">What we built</span>
+    <h1 style="font-family: Archivo, Helvetica, sans-serif; font-stretch: 75%; font-weight: 700; font-size: 84px; line-height: 0.94; margin: 0;">A card that refuses to help too early</h1>
+  </div>
+
+  <div style="display: flex; gap: 44px; flex: 1 1 auto; align-items: stretch;">
+
+    <div style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 20px; justify-content: center;">
+      <p style="margin: 0; font-size: 23px; line-height: 1.45; color: #3D4A47;">No handoff is produced until a person has called and written down what they were told. Everything after that point is only the confirmed facts.</p>
+      <p style="margin: 0; font-size: 23px; line-height: 1.45; color: #3D4A47;">The output stays visible but locked, and names exactly what is still missing. Hiding it would just look broken.</p>
+    </div>
+
+    <div style="flex: 0 0 520px; background: #E7DCC5; border: 2px dashed #A79A80; padding: 30px 32px; display: flex; flex-direction: column; gap: 16px; justify-content: center;">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #7C7565;">Locked until the call is confirmed</span>
+      <span style="font-size: 18px; color: #3D4A47;">Still needed:</span>
+      <div style="display: flex; flex-direction: column; gap: 11px; font-size: 19px; line-height: 1.35;">
+        <div style="display: flex; gap: 12px; align-items: baseline;"><span style="color: #C85A28; flex: none;">&mdash;</span><span>which station 211 named</span></div>
+        <div style="display: flex; gap: 12px; align-items: baseline;"><span style="color: #C85A28; flex: none;">&mdash;</span><span>whether anyone confirmed it is open today</span></div>
+        <div style="display: flex; gap: 12px; align-items: baseline;"><span style="color: #C85A28; flex: none;">&mdash;</span><span>what time it is open until</span></div>
+        <div style="display: flex; gap: 12px; align-items: baseline;"><span style="color: #C85A28; flex: none;">&mdash;</span><span>the time you called 211</span></div>
+        <div style="display: flex; gap: 12px; align-items: baseline;"><span style="color: #C85A28; flex: none;">&mdash;</span><span>your initials, so the follow-up has an owner</span></div>
+      </div>
+    </div>
+  </div>
+
+  <p style="margin: 0; font-size: 20px; line-height: 1.4; border-top: 2px solid #16211F; padding-top: 20px;">The phone call is the part that cannot be automated, so the card is built around protecting it.</p>
+</div>
+</x-dc>
+</body>
+</html>

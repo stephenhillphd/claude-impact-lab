@@ -1,0 +1,153 @@
+{
+  "pages": [
+    {
+      "id": "page-1",
+      "name": "Deck"
+    },
+    {
+      "id": "page-2",
+      "name": "Backup for questions"
+    }
+  ],
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "title": "1 · Title",
+      "page": "page-1",
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "file": "Marcus.dc.html",
+      "title": "2 · Marcus",
+      "page": "page-1",
+      "x": 1400,
+      "y": 0,
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "file": "Findings.dc.html",
+      "title": "3 · Findings",
+      "page": "page-1",
+      "x": 2800,
+      "y": 0,
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "file": "Demo.dc.html",
+      "title": "4 · What we built",
+      "page": "page-1",
+      "x": 0,
+      "y": 900,
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "file": "Limits.dc.html",
+      "title": "5 · Limits",
+      "page": "page-1",
+      "x": 1400,
+      "y": 900,
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "file": "Ask.dc.html",
+      "title": "6 · The ask",
+      "page": "page-1",
+      "x": 2800,
+      "y": 900,
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "file": "GoodNews.dc.html",
+      "title": "All eleven stations",
+      "page": "page-2",
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "file": "NotSchedule.dc.html",
+      "title": "The 95°F rule",
+      "page": "page-2",
+      "x": 1400,
+      "y": 0,
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "file": "NoOneToCall.dc.html",
+      "title": "The 211 trail",
+      "page": "page-2",
+      "x": 2800,
+      "y": 0,
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "file": "Gate.dc.html",
+      "title": "The gate",
+      "page": "page-2",
+      "x": 0,
+      "y": 900,
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "file": "DeadEnd.dc.html",
+      "title": "No output",
+      "page": "page-2",
+      "x": 1400,
+      "y": 900,
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "file": "NearMiss.dc.html",
+      "title": "Pathways near miss",
+      "page": "page-2",
+      "x": 2800,
+      "y": 900,
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "file": "Paper.dc.html",
+      "title": "The paper template",
+      "page": "page-2",
+      "x": 0,
+      "y": 1800,
+      "w": 1280,
+      "h": 720
+    }
+  ],
+  "annotations": [
+    {
+      "id": "running-order",
+      "page": "page-1",
+      "x": 0,
+      "y": -240,
+      "w": 620,
+      "text": "Six slides, about 90 seconds, then the live walkthrough.\n\n1-2 set up Marcus. 3 is why this is hard.\n4 hands off to the artifact — demo it, then hold up\nthe printed blank. 5-6 close on limits and the ask.\n\nEverything the demo covers now lives on the backup page."
+    },
+    {
+      "id": "backup-note",
+      "page": "page-2",
+      "x": 0,
+      "y": -240,
+      "w": 620,
+      "text": "Cut from the running deck because the live demo covers them.\n\nKept for the question period: if someone asks how the gate\nworks, why a dead end produces nothing, or about the\nPathways restriction, the slide already exists."
+    }
+  ],
+  "launch": {
+    "view": "canvas",
+    "page": "page-1"
+  }
+}

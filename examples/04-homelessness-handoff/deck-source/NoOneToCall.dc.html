@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75,600;75,700;100,500&family=IBM+Plex+Mono:wght@500;600&family=Public+Sans:wght@400;600&display=swap">
+  <style>
+    body { margin: 0; font-family: "Public Sans", Helvetica, Arial, sans-serif; }
+    a { color: #C85A28; } a:hover { color: #9E4419; }
+  </style>
+</helmet>
+<div style="width: 1280px; height: 720px; background: #F2E8D5; color: #16211F; padding: 64px 80px; box-sizing: border-box; display: flex; flex-direction: column; gap: 32px;">
+
+  <div style="display: flex; flex-direction: column; gap: 14px;">
+    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #C85A28;">Findings two and three</span>
+    <h1 style="font-family: Archivo, Helvetica, sans-serif; font-stretch: 75%; font-weight: 700; font-size: 84px; line-height: 0.94; margin: 0;">So call ahead. Call who?</h1>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; flex: 1 1 auto;">
+
+    <div style="border: 2px solid #16211F; padding: 32px 30px; display: flex; flex-direction: column; gap: 16px;">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #1F5F5C;">The city's list</span>
+      <h2 style="font-family: Archivo, Helvetica, sans-serif; font-stretch: 75%; font-weight: 700; font-size: 40px; line-height: 1.02; margin: 0;">Publishes no phone number. For any station.</h2>
+      <p style="margin: 0; font-size: 19px; line-height: 1.45; color: #3D4A47;">Names, addresses, hours. Nothing to dial. A workflow built on &ldquo;call before anyone travels&rdquo; gets nothing from the source that matters.</p>
+    </div>
+
+    <div style="border: 2px solid #16211F; padding: 32px 30px; display: flex; flex-direction: column; gap: 16px;">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #1F5F5C;">So we followed the referrals</span>
+      <h2 style="font-family: Archivo, Helvetica, sans-serif; font-stretch: 75%; font-weight: 700; font-size: 40px; line-height: 1.02; margin: 0;">The trail loops, then goes cold.</h2>
+      <div style="display: flex; flex-direction: column; gap: 7px; font-size: 17px; line-height: 1.4; color: #3D4A47;">
+        <span><strong style="font-weight: 600;">United Way 211</strong> &rarr; points to county EMA and Health</span>
+        <span><strong style="font-weight: 600;">County EMA</strong> &rarr; lists nothing, says ask Health</span>
+        <span><strong style="font-weight: 600;">County Health</strong> &rarr; the words &ldquo;heat&rdquo; and &ldquo;cooling&rdquo; do not appear on the site</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: #1F5F5C; color: #F2E8D5; padding: 26px 32px; display: flex; align-items: center; gap: 28px;">
+    <span style="font-family: Archivo, Helvetica, sans-serif; font-stretch: 75%; font-weight: 700; font-size: 46px; line-height: 1; flex: none;">211</span>
+    <p style="margin: 0; font-size: 20px; line-height: 1.4;">is the one number that reaches a human, so everything routes there. But 211 is a referral line, not the city's activation system, and the card says so rather than pretending otherwise.</p>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>
