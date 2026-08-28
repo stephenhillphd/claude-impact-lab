@@ -4,8 +4,8 @@ A completed run of the [30-minute quick start](../../resources/04-homelessness-h
 for Challenge 4, using scenario `SCEN-01` (adult sleeping outdoors during a heat
 advisory; needs shade and water; resource type is a cooling center).
 
-**Artifact:** [`birmingham-heat-handoff.html`](birmingham-heat-handoff.html), or the
-[published version](https://claude.ai/code/artifact/94ccf7a6-f9ac-4ce8-a9db-f4c2c8cfb091).
+**Artifact:** [`birmingham-cooling-handoff.html`](birmingham-cooling-handoff.html), or the
+[published version](https://claude.ai/code/artifact/923e8ee4-00b4-48bf-b834-44d50b1eb14f).
 
 **To hand round:** [`birmingham-cooling-field-card.pdf`](birmingham-cooling-field-card.pdf)
 is the blank template, ready to print in a stack.
@@ -179,7 +179,7 @@ because the city publishes none.
 | `SCEN-01` scenario fields | [`homelessness-handoff-scenarios.csv`](../../resources/data/homelessness-handoff-scenarios.csv), synthetic |
 
 The station data is transcribed verbatim into one commented array near the top
-of the script in `birmingham-heat-handoff.html`. Nothing is fetched at runtime.
+of the script in `birmingham-cooling-handoff.html`. Nothing is fetched at runtime.
 The page makes no network calls at all.
 
 ## Rules compliance
