@@ -31,6 +31,11 @@ Columns: `scenario_id`, `person_context`, `immediate_need`, `public_resource_typ
 4. Add source and freshness notes, mark the `capacity_is_not_live` flag clearly, and identify the `handoff_owner_type` responsible for the `follow_up_window`.
 5. Produce a first artifact: a handoff card, a resource-confirmation workflow, or a frontline summary that a human can review before acting.
 
+A worked run of these five steps for `SCEN-01` is in
+[examples/04-homelessness-handoff/](../examples/04-homelessness-handoff/). It is a
+reference for what the safety requirements look like when built rather than
+described — not a model answer, and not a starting point to copy.
+
 ## Download or API notes
 
 - One Roof, One Roof Coordinated Entry, City community resources, United Way 211, and the Consolidated Plan PDF are standard web pages or a downloadable PDF; read and cite them directly. No bulk download or API has been verified for these.
