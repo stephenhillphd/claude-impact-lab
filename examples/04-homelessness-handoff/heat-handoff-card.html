@@ -267,8 +267,152 @@
   .given-foot b { color: var(--go); font-weight: 600; }
   .given-foot a { color: var(--accent); }
 
+  /* ---------- the 211 dial block ---------- */
+  .dial {
+    display: grid;
+    gap: 0;
+    border-color: var(--accent);
+    border-left-width: 4px;
+  }
+  @media (min-width: 40rem) { .dial { grid-template-columns: minmax(0,15rem) 1fr; } }
+  .dial-main {
+    background: var(--accent-wash);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: .125rem;
+    justify-content: center;
+  }
+  .dial-label {
+    font-family: var(--mono);
+    font-size: .6875rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .dial-num {
+    font-family: var(--display);
+    font-stretch: 75%;
+    font-weight: 700;
+    font-size: 3.25rem;
+    line-height: 1;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  .dial-alt {
+    font-family: var(--mono);
+    font-size: .875rem;
+    font-weight: 500;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .dial-ask {
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    font-size: .9375rem;
+  }
+  .dial-free { margin: 0; color: var(--ink-muted); font-size: .875rem; }
+  .dial-ask ol { margin: 0; padding-left: 1.25rem; display: flex; flex-direction: column; gap: .25rem; }
+
+  /* ---------- station reference list ---------- */
+  .stations {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+  }
+  .stations > summary {
+    cursor: pointer;
+    padding: .875rem 1.25rem;
+    font-size: .875rem;
+    font-weight: 600;
+    list-style-position: inside;
+  }
+  .stations > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .stations-body {
+    padding: 0 1.25rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .stations-warn {
+    margin: 0;
+    font-size: .875rem;
+    color: var(--ink);
+    background: var(--heat-wash);
+    border-left: 3px solid var(--heat);
+    padding: .75rem .875rem;
+    border-radius: 2px;
+  }
+  .area-group { display: flex; flex-direction: column; gap: .375rem; margin-bottom: .875rem; }
+  .area-name {
+    font-family: var(--mono);
+    font-size: .6875rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: .25rem;
+  }
+  .st-row { display: flex; flex-direction: column; gap: .0625rem; font-size: .875rem; }
+  .st-name { font-weight: 600; }
+  .st-addr { color: var(--ink-muted); }
+  .st-hours { font-family: var(--mono); font-size: .75rem; color: var(--ink-faint); }
+  .st-limit {
+    font-size: .8125rem;
+    font-weight: 600;
+    color: var(--stop);
+    margin-top: .1875rem;
+  }
+  .st-note { font-size: .8125rem; color: var(--ink-muted); font-style: italic; margin-top: .1875rem; }
+  .dial-caveat {
+    margin: .25rem 0 0;
+    font-size: .8125rem;
+    color: var(--ink-muted);
+    border-top: 1px solid var(--rule);
+    padding-top: .625rem;
+  }
+  .dial-caveat a { color: var(--accent); }
+  .prov {
+    margin: 0;
+    font-family: var(--mono);
+    font-size: .6875rem;
+    color: var(--ink-faint);
+    border-top: 1px solid var(--rule);
+    padding-top: .75rem;
+  }
+  .prov a { color: var(--accent); }
+
+  /* selected station record */
+  #station-detail {
+    background: var(--accent-wash);
+    border-left: 3px solid var(--accent);
+    border-radius: 2px;
+    padding: .875rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .125rem;
+    font-size: .9375rem;
+  }
+  #station-detail .st-hours { color: var(--ink-muted); }
+
   /* ---------- form ---------- */
   fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1rem; }
+  select {
+    font-family: var(--body);
+    font-size: 1rem;
+    color: var(--ink);
+    background: var(--ground);
+    border: 1px solid var(--rule-strong);
+    border-radius: 2px;
+    padding: .5625rem .6875rem;
+    width: 100%;
+  }
+  select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   legend { padding: 0; }
 
   .field-grid { display: grid; gap: 1rem; }
@@ -551,8 +695,8 @@
 </style>
 
 <div class="banner">
-  <span>Fictional scenario · synthetic data</span>
-  <span>Capacity is not live</span>
+  <span>Fictional person · synthetic scenario</span>
+  <span>Real station list · not live availability</span>
   <span>Not a Coordinated Entry decision</span>
 </div>
 
@@ -568,8 +712,9 @@
     </div>
     <h1>Heat Handoff Card</h1>
     <p class="standfirst">
-      No Birmingham source publishes live cooling-center capacity. So this card refuses to
-      produce a handoff until a person has picked up a phone and confirmed the place is open.
+      Birmingham lists eleven real cooling stations, but they open only when the heat index hits
+      95°F — and the city publishes no phone number for any of them. So this card refuses to
+      produce a handoff until a person has confirmed a station is actually open today.
       <strong>The phone call is the artifact.</strong> Everything below it is just the confirmed
       facts, written out twice — once for the responder's log, once for the person walking there.
     </p>
@@ -627,57 +772,93 @@
     <section class="stage is-active rail-broken" id="stage-confirm">
       <div class="stage-num" aria-hidden="true">2</div>
       <div class="stage-head">
-        <h2>Call before anyone travels</h2>
+        <h2>Confirm before anyone travels</h2>
         <p class="stage-sub">
-          Look the nearest cooling center up in a public directory, then call it. These fields start
-          empty on purpose — this page will not print an address or phone number it made up. Nothing
-          you type here is saved anywhere.
+          The city lists eleven cooling stations, but the list is not a schedule and it carries no
+          phone numbers at all. 211 is the only number here that reaches a person — though the city,
+          not 211, is where activations get published. Nothing you enter is saved anywhere.
         </p>
       </div>
+
+      <div class="panel dial">
+        <div class="dial-main">
+          <span class="dial-label">Call or text</span>
+          <span class="dial-num">211</span>
+          <span class="dial-alt">or 888-421-1266</span>
+          <span class="dial-alt">text ZIP to 898-211</span>
+          <span class="dial-alt">TTY: 7-1-1</span>
+        </div>
+        <div class="dial-ask">
+          <p class="dial-free">Free, confidential, 24/7. Serves Jefferson County.</p>
+          <p style="margin:0">Ask:</p>
+          <ol>
+            <li>Which cooling location is open right now, and until when?</li>
+            <li>Does it serve the person in front of you?</li>
+          </ol>
+          <p class="dial-caveat">
+            211 is a referral line, not the city's activation system — its own heat guidance lists
+            no Birmingham addresses. If it cannot name an open station, check
+            <a href="https://www.birminghamal.gov/homelessness" target="_blank" rel="noopener">birminghamal.gov/homelessness</a>,
+            which is where activations are published.
+          </p>
+        </div>
+      </div>
+
+      <details class="stations">
+        <summary>The eleven stations the city lists</summary>
+        <div class="stations-body">
+          <p class="stations-warn">
+            A listing, not a schedule. Stations open only when the temperature or heat index reaches
+            <b>95°F or higher</b>. Hours below are the hours the city published, not today's hours,
+            and the city publishes no phone number for any of these.
+          </p>
+          <div id="station-list"></div>
+          <p class="prov">
+            Source: City of Birmingham ·
+            <a href="https://www.birminghamal.gov/homelessness" target="_blank" rel="noopener">birminghamal.gov/homelessness</a>
+            · retrieved 28 August 2026
+          </p>
+        </div>
+      </details>
 
       <div class="panel panel-pad">
         <form id="confirm-form" autocomplete="off">
           <fieldset>
-            <legend class="sr">Confirm the cooling center by phone</legend>
+            <legend class="sr">Record what 211 confirmed</legend>
 
-            <p style="margin:0;font-size:.875rem;color:var(--ink-muted)">
-              Public directories:
-              <a href="https://cobcd.com/communityresources/" target="_blank" rel="noopener">City community resources</a> ·
-              <a href="https://www.uwca.org/programs/211-call-center/" target="_blank" rel="noopener">United Way 211</a>
-            </p>
+            <label class="f">
+              <span class="f-label">Which station did 211 name?</span>
+              <select id="stationId">
+                <option value="">Select what 211 told you…</option>
+              </select>
+            </label>
 
-            <div class="field-grid two">
+            <div id="station-detail" hidden></div>
+
+            <div class="field-grid two" id="other-row" hidden>
               <label class="f">
-                <span class="f-label">Cooling center name</span>
-                <input type="text" id="centerName" placeholder="From the public directory">
+                <span class="f-label">Station name <span class="f-hint">— as 211 gave it</span></span>
+                <input type="text" id="otherName" placeholder="Name 211 gave you">
               </label>
               <label class="f">
-                <span class="f-label">Phone number you called</span>
-                <input type="tel" id="centerPhone" placeholder="000-000-0000">
+                <span class="f-label">Street address</span>
+                <input type="text" id="otherAddress" placeholder="Street, city">
               </label>
             </div>
 
-            <label class="f">
-              <span class="f-label">Street address <span class="f-hint">— read back to you on the call</span></span>
-              <input type="text" id="centerAddress" placeholder="Street, city">
-            </label>
-
-            <div class="f">
-              <span class="f-label">Are they open today?</span>
-              <div class="seg" role="radiogroup" aria-label="Are they open today?">
-                <input type="radio" name="openToday" id="ot-yes" value="yes"><label for="ot-yes">Yes</label>
-                <input type="radio" name="openToday" id="ot-no" value="no"><label for="ot-no" class="v-no">No</label>
-                <input type="radio" name="openToday" id="ot-na" value="noanswer"><label for="ot-na" class="v-noanswer">No answer</label>
+            <div class="f" id="activation-row">
+              <span class="f-label">Is it confirmed open today?
+                <span class="f-hint">— from 211, or from the city's activation page</span></span>
+              <div class="seg" role="radiogroup" aria-label="Is it confirmed open today?">
+                <input type="radio" name="openToday" id="ot-yes" value="yes"><label for="ot-yes">Yes, confirmed open</label>
+                <input type="radio" name="openToday" id="ot-no" value="no"><label for="ot-no" class="v-no">No, closed or not activated</label>
+                <input type="radio" name="openToday" id="ot-na" value="unsure"><label for="ot-na" class="v-unknown">Nobody could confirm</label>
               </div>
             </div>
 
             <div class="field-grid two" id="hours-row">
               <label class="f">
-                <span class="f-label">Open from</span>
-                <input type="time" id="hoursFrom">
-              </label>
-              <label class="f">
-                <span class="f-label">Open until</span>
+                <span class="f-label">Open until <span class="f-hint">— what 211 said today</span></span>
                 <input type="time" id="hoursTo">
               </label>
             </div>
@@ -713,8 +894,8 @@
             </div>
 
             <label class="f">
-              <span class="f-label">Staff member you spoke with <span class="f-hint">— first name or role, optional</span></span>
-              <input type="text" id="spokeWith" placeholder="e.g. front desk">
+              <span class="f-label">Who you spoke with at 211 <span class="f-hint">— first name or role, optional</span></span>
+              <input type="text" id="spokeWith" placeholder="e.g. 211 specialist">
             </label>
 
             <div class="row-split">
@@ -722,7 +903,7 @@
                 No field here asks for the name, age, or story of the person you are helping.
               </span>
               <span style="display:flex;gap:.5rem;flex-wrap:wrap">
-                <button type="button" id="demo-btn">Load fictional demo values</button>
+                <button type="button" id="demo-btn">Fill in an example call</button>
                 <button type="button" id="clear-btn">Clear</button>
               </span>
             </div>
@@ -761,9 +942,11 @@
         <h3 id="esc-title">Do not send anyone yet</h3>
         <p style="margin:0" id="esc-why"></p>
         <ol>
-          <li>Try the <b>next listed cooling center</b> in the city directory and call that one.</li>
-          <li>If no listed center confirms it is open, call <b>211</b> (United Way of Central Alabama)
-            and ask for an open cooling location today.</li>
+          <li>Ask 211 directly: <b>is any indoor public space open right now?</b> Library branches
+            keep their own hours whether or not the city has activated cooling stations.</li>
+          <li>Check whether the city has posted an activation at
+            <a href="https://www.birminghamal.gov/homelessness" target="_blank" rel="noopener">birminghamal.gov/homelessness</a>
+            — stations open at a 95°F heat index, so an activation can begin later in the day.</li>
           <li>If the need is shelter rather than heat relief, route through
             <a href="https://www.oneroofonline.org/coordinated-entry" target="_blank" rel="noopener">One Roof Coordinated Entry</a>.
             This card does not make placement decisions.</li>
@@ -791,12 +974,13 @@
             </div>
 
             <div class="sum-block">
-              <span class="sum-h">Confirmed by phone</span>
+              <span class="sum-h">Confirmed by calling 211</span>
               <dl>
-                <dt>Center</dt><dd id="o-name"></dd>
+                <dt>Station</dt><dd id="o-name"></dd>
                 <dt>Address</dt><dd id="o-address"></dd>
                 <dt>Phone</dt><dd class="mono" id="o-phone"></dd>
-                <dt>Open today</dt><dd id="o-hours"></dd>
+                <dt>Today</dt><dd id="o-hours"></dd>
+                <dt>Eligibility</dt><dd id="o-limit"></dd>
                 <dt>Walk-in, no ID</dt><dd id="o-walkin"></dd>
                 <dt>Water on site</dt><dd id="o-water"></dd>
                 <dt>Called</dt><dd class="mono" id="o-called"></dd>
@@ -807,8 +991,8 @@
             <div class="sum-block">
               <span class="sum-h">What is still unknown</span>
               <ul>
-                <li>How many people the center can take right now. <b>No source here is live.</b></li>
-                <li>Whether the directory listing itself is current beyond this one call.</li>
+                <li>How many people the station can take right now. <b>No source here is live.</b></li>
+                <li>Whether the city's list is current beyond this one call.</li>
                 <li>Anything about eligibility for housing. This is heat relief, not a placement.</li>
               </ul>
             </div>
@@ -824,16 +1008,18 @@
             <div class="sum-block">
               <span class="sum-h">If it is closed on arrival</span>
               <ol>
-                <li>Next listed cooling center</li>
-                <li>211</li>
+                <li>Call 211 again for another open station</li>
                 <li>One Roof Coordinated Entry, if the need is shelter</li>
               </ol>
             </div>
 
             <p class="fine">
-              SCEN-01 is a fictional scenario from a synthetic dataset (<code>is_synthetic = true</code>).
-              Capacity shown is not live (<code>capacity_is_not_live = true</code>). This card does not
-              replace or bypass Coordinated Entry.
+              Station list: City of Birmingham,
+              <a href="https://www.birminghamal.gov/homelessness" target="_blank" rel="noopener">birminghamal.gov/homelessness</a>,
+              retrieved 28 August 2026 — a listing, not a schedule. SCEN-01 is a fictional scenario
+              from a synthetic dataset (<code>is_synthetic = true</code>) and capacity is not live
+              (<code>capacity_is_not_live = true</code>). This card does not replace or bypass
+              Coordinated Entry.
             </p>
           </div>
         </div>
@@ -862,8 +1048,9 @@
 
             <div class="p-closed">
               <span class="p-label">If the door is locked</span>
-              <p style="margin:0">Call them: <span class="p-phone" id="p-phone"></span></p>
-              <p style="margin:0">Or call <b>211</b>. It is free, and they can find another open place.</p>
+              <p style="margin:0">Call or text <span class="p-phone" id="p-phone">211</span>. It is free.</p>
+              <p style="margin:0">They can find you another open place. You can text your ZIP code to
+                898-211, or call 888-421-1266.</p>
             </div>
 
             <p class="fine" id="p-fine"></p>
@@ -878,9 +1065,17 @@
     <div>
       <h3>Why it is built this way</h3>
       <ul>
-        <li><b>The gate is the point.</b> HUD PIT/HIC counts are historical and system-level; no
-          Birmingham source publishes live cooling-center capacity. A page that displayed a
-          resource list would be quietly claiming something it cannot know.</li>
+        <li><b>A list is not a schedule.</b> The city publishes eleven stations, but they activate
+          only at a 95°F heat index. Showing the list alone would imply eleven open doors.</li>
+        <li><b>One number, and it is correct.</b> The city publishes no phone number for any
+          station. Rather than source eleven numbers from eleven other sites — any of which could
+          be wrong — everything routes through 211, which is free and stable.</li>
+        <li><b>211 is a referral line, not a system of record.</b> Its own heat guidance lists no
+          Birmingham addresses and never uses the city's term "cooling station". The card says so
+          rather than implying a data link that does not exist.</li>
+        <li><b>Eligibility travels with the address.</b> Pathways serves women and children only.
+          That restriction appears in the dropdown, on the responder's log, and as the first line
+          of the person's card — before anything about hours.</li>
         <li><b>Two cards, one set of facts.</b> The person-facing card can only say what the call
           confirmed. Unconfirmed items become "we could not check", never silence.</li>
         <li><b>Freshness expires.</b> The card ages visibly and marks itself expired at the 2-hour
@@ -891,13 +1086,22 @@
     <div>
       <h3>Limits</h3>
       <ul>
-        <li>SCEN-01 is fictional. The demo values name a fictional center. Real use means typing in
-          a real listing from
-          <a href="https://cobcd.com/communityresources/" target="_blank" rel="noopener">the city directory</a> or 211.</li>
+        <li>The station list is a snapshot taken 28 August 2026, not a feed. Check
+          <a href="https://www.birminghamal.gov/homelessness" target="_blank" rel="noopener">birminghamal.gov/homelessness</a>
+          before relying on it.</li>
+        <li>The <i>person</i> is fictional — SCEN-01 from the event's synthetic dataset. The
+          <i>stations</i> are real. Keep those straight when showing this to anyone.</li>
+        <li>No overnight option exists. Every listed station closes by 8 p.m. at the latest, most
+          by 5 or 6. Sunday coverage is thinnest — only Harrison Rec and Firehouse publish Sunday
+          hours.</li>
+        <li>Entry requirements are <i>not published</i> by the city, in either direction. The card
+          never says "no ID needed" on its own authority — only a responder who asked can record
+          that.</li>
         <li>Nothing is stored. No <code>localStorage</code>, no server, no record. Closing the tab
           discards everything, deliberately.</li>
-        <li>This is heat relief only. Shelter, housing, and placement run through
-          <a href="https://www.oneroofonline.org/coordinated-entry" target="_blank" rel="noopener">One Roof Coordinated Entry</a>.</li>
+        <li>Heat relief only. Shelter, housing, and placement run through
+          <a href="https://www.oneroofonline.org/coordinated-entry" target="_blank" rel="noopener">One Roof Coordinated Entry</a>
+          — which is also, itself, one of the eleven listed stations.</li>
         <li>Built as a worked example of the 30-minute quick start in
           <code>resources/04-homelessness-handoff.md</code>.</li>
       </ul>
@@ -915,7 +1119,39 @@
 
   var $ = function (id) { return document.getElementById(id); };
 
-  var textIds = ["centerName", "centerPhone", "centerAddress", "hoursFrom", "hoursTo", "callTime", "initials", "spokeWith"];
+  // ---- real data -----------------------------------------------------------
+  // City of Birmingham cooling stations, transcribed verbatim from
+  // https://www.birminghamal.gov/homelessness  ·  retrieved 28 August 2026.
+  // Addresses and hours are exactly as the city published them. The city
+  // publishes NO phone number for any of these, which is why this card routes
+  // through 211 instead. Do not add a phone number here without a source.
+  // `limit` is a hard eligibility restriction published by the site itself, not
+  // by the city. Only assert one where a primary source states it. Everything
+  // else is genuinely unpublished — the city states no ID, residency, or
+  // registration rule in EITHER direction, so never render "no ID needed".
+  var STATIONS = [
+    { id: "bpl",     area: "Central", name: "Birmingham Public Library",  addr: "2100 Park Place",                       hours: "Mon, Wed–Sat 9 a.m.–6 p.m.; Tue 9 a.m.–8 p.m." },
+    { id: "faith",   area: "Central", name: "Faith Chapel Care Center",   addr: "921 2nd Ave. North",                    hours: "Tue, Thu, Sat 8:30 a.m.–12:30 p.m." },
+    { id: "pathways",area: "Central", name: "Pathways",                   addr: "409 Richard Arrington Jr. Blvd. North", hours: "Mon–Fri 9 a.m.–3 p.m.",
+      limit: "Women and children only — pathwayshome.org" },
+    { id: "firehouse",area:"Central", name: "Firehouse Ministries",       addr: "626 2nd Ave. North",                    hours: "Mon, Wed, Thu, Sat, Sun 2–5 p.m." },
+    { id: "nbl",     area: "North",   name: "North Birmingham Library",   addr: "2501 31st Ave. N",                      hours: "Mon–Fri 9 a.m.–6 p.m.; Tue 9 a.m.–8 p.m." },
+    { id: "fitness", area: "North",   name: "Fitness Center",             addr: "421 Reverend Abraham Woods Jr Blvd",    hours: "Mon–Fri 5:30 a.m.–7:30 p.m.; Sat 8 a.m.–1 p.m.; Sun closed" },
+    { id: "fpw",     area: "West",    name: "Five Points West Library",   addr: "4812 Ave. W",                           hours: "Mon–Fri 9 a.m.–6 p.m." },
+    { id: "oneroof", area: "West",    name: "One Roof",                   addr: "730 8th Ave. West",                     hours: "9 a.m.–4 p.m.",
+      note: "Continuum of Care office. Listed by the city as a cooling station; it does not advertise a drop-in centre." },
+    { id: "harrison",area: "South",   name: "Harrison Recreation Center", addr: "901 17th St SW",                        hours: "Mon–Wed, Fri–Sun 12–5:30 p.m.; Thu 9:30 a.m.–5:30 p.m." },
+    { id: "southside",area:"South",   name: "Southside Library",          addr: "1814 11th Ave. South",                  hours: "Mon–Fri 9 a.m.–6 p.m." },
+    { id: "woodlawn",area: "East",    name: "Woodlawn Library",           addr: "5709 1st Ave. N",                       hours: "Mon–Fri 9 a.m.–6 p.m." }
+  ];
+  var AREAS = ["Central", "North", "West", "South", "East"];
+
+  function stationById(id) {
+    for (var i = 0; i < STATIONS.length; i++) { if (STATIONS[i].id === id) return STATIONS[i]; }
+    return null;
+  }
+
+  var textIds = ["otherName", "otherAddress", "hoursTo", "callTime", "initials", "spokeWith"];
 
   function radioVal(name) {
     var el = document.querySelector('input[name="' + name + '"]:checked');
@@ -925,22 +1161,38 @@
   function readState() {
     var s = {};
     textIds.forEach(function (id) { s[id] = $(id).value.trim(); });
+    s.stationId = $("stationId").value;
     s.openToday = radioVal("openToday");
     s.walkIn = radioVal("walkIn");
     s.water = radioVal("water");
+
+    // resolve the named place from the real list, or from the "other" escape
+    var st = stationById(s.stationId);
+    if (st) {
+      s.placeName = st.name; s.placeAddr = st.addr; s.placeHours = st.hours;
+      s.placeLimit = st.limit || ""; s.listed = true;
+    } else if (s.stationId === "other") {
+      s.placeName = s.otherName; s.placeAddr = s.otherAddress; s.placeHours = "";
+      s.placeLimit = ""; s.listed = false;
+    } else {
+      s.placeName = ""; s.placeAddr = ""; s.placeHours = ""; s.placeLimit = ""; s.listed = false;
+    }
     return s;
   }
 
+  // "none" = 211 could not name an open station. Treated as an escalation, same
+  // as an explicit "not activated".
+  function isDeadEnd(s) { return s.stationId === "none" || s.openToday === "no"; }
+
   function missing(s) {
     var m = [];
-    if (!s.centerName) m.push("the name of the cooling center you called");
-    if (!s.centerPhone) m.push("the phone number you called");
-    if (!s.openToday) m.push("whether they are open today");
-    if (s.openToday === "yes") {
-      if (!s.centerAddress) m.push("the street address, read back to you on the call");
-      if (!s.hoursFrom || !s.hoursTo) m.push("today's opening and closing time");
+    if (!s.stationId) m.push("which station 211 named");
+    if (s.stationId === "other" && (!s.otherName || !s.otherAddress)) {
+      m.push("the name and address 211 gave you");
     }
-    if (!s.callTime) m.push("the time you called");
+    if (!s.openToday) m.push("whether anyone confirmed it is open today");
+    if (!isDeadEnd(s) && s.stationId && !s.hoursTo) m.push("what time it is open until");
+    if (!s.callTime) m.push("the time you called 211");
     if (!s.initials) m.push("your initials, so the 2-hour follow-up has an owner");
     return m;
   }
@@ -996,11 +1248,33 @@
     var stageOut = $("stage-out");
     var stageConfirm = $("stage-confirm");
 
-    // hours row only matters when they are open
-    $("hours-row").hidden = (s.openToday === "no" || s.openToday === "noanswer");
-    $("detail-row").hidden = (s.openToday === "no" || s.openToday === "noanswer");
+    var closed = isDeadEnd(s);
 
-    var closed = (s.openToday === "no" || s.openToday === "noanswer");
+    // the "other" free-text escape, and the station's own record
+    $("other-row").hidden = (s.stationId !== "other");
+    var st = stationById(s.stationId);
+    var detail = $("station-detail");
+    if (st) {
+      detail.hidden = false;
+      detail.innerHTML = "";
+      var rows = [["st-name", st.name], ["st-addr", st.addr],
+                  ["st-hours", "City-published hours: " + st.hours]];
+      if (st.limit) rows.push(["st-limit", "Eligibility: " + st.limit]);
+      if (st.note) rows.push(["st-note", st.note]);
+      rows.forEach(function (p) {
+        var el = document.createElement("span");
+        el.className = p[0];
+        el.textContent = p[1];
+        detail.appendChild(el);
+      });
+    } else {
+      detail.hidden = true;
+    }
+
+    // nothing downstream of a dead end
+    $("hours-row").hidden = closed;
+    $("detail-row").hidden = closed;
+
     var ready = miss.length === 0;
 
     // ---- locked ----
@@ -1022,6 +1296,7 @@
     }
 
     $("lock-notice").hidden = true;
+    $("missing-list").innerHTML = "";
     stageOut.className = "stage is-active";
     stageConfirm.className = "stage is-active";
 
@@ -1046,29 +1321,40 @@
       (f.key === "future" ? "" : " · " + elapsedWords(f.elapsed));
     $("fresh-due").textContent = closed ? "" : "Follow up by " + fmtHM(due);
 
-    // ---- branch: not open ----
+    // ---- branch: dead end ----
     if (closed) {
       $("cards").hidden = true;
       $("escalation").hidden = false;
-      $("esc-title").textContent = s.openToday === "no"
-        ? "They said they are not open. Do not send anyone there."
-        : "Nobody answered. Do not send anyone there yet.";
-      $("esc-why").textContent = s.openToday === "no"
-        ? s.centerName + " confirmed at " + fmtHM(callMin) + " that they are closed today. No handoff card is produced, because the only thing this card can honestly say is that this place is not an option right now."
-        : "You called " + s.centerName + " at " + fmtHM(callMin) + " and got no answer. An unanswered phone is not a confirmation, so no handoff card is produced.";
+      if (s.stationId === "none") {
+        $("esc-title").textContent = "211 could not name an open station. Do not send anyone yet.";
+        $("esc-why").textContent =
+          "You called 211 at " + fmtHM(callMin) + " and they could not name a station that is open " +
+          "right now. Without a confirmed destination there is nothing safe to hand over.";
+      } else {
+        $("esc-title").textContent = "Confirmed closed. Do not send anyone there.";
+        $("esc-why").textContent =
+          "As of " + fmtHM(callMin) + " this place is closed, or the city has not activated cooling " +
+          "stations today. The eleven listed stations open only at a 95°F heat index, so being on " +
+          "the list does not mean the doors are open.";
+      }
       return;
     }
 
-    // ---- branch: open ----
+    // ---- branch: confirmed ----
     $("escalation").hidden = true;
     $("cards").hidden = false;
 
-    var from = parseHM(s.hoursFrom), to = parseHM(s.hoursTo);
+    var to = parseHM(s.hoursTo);
+    var unsure = (s.openToday === "unsure");
 
-    $("o-name").textContent = s.centerName;
-    $("o-address").textContent = s.centerAddress;
-    $("o-phone").textContent = s.centerPhone;
-    $("o-hours").innerHTML = TAG.yes + " " + fmtHM(from) + " – " + fmtHM(to);
+    $("o-name").textContent = s.placeName + (s.listed ? "" : "  (not on the city list)");
+    $("o-address").textContent = s.placeAddr;
+    $("o-phone").textContent = "211 — the city publishes none";
+    $("o-hours").innerHTML = (unsure ? TAG.unknown : TAG.yes) + " open until " + fmtHM(to) +
+      (unsure ? " — nobody could confirm it is open" : "");
+    $("o-limit").innerHTML = s.placeLimit
+      ? '<span class="tag no">restricted</span> ' + s.placeLimit
+      : '<span class="tag unk">not published</span>';
     $("o-walkin").innerHTML = TAG[s.walkIn];
     $("o-water").innerHTML = TAG[s.water];
     $("o-called").textContent = fmtHM(callMin) + " by " + s.initials.toUpperCase();
@@ -1077,13 +1363,20 @@
     $("o-due").textContent = fmtHM(due) + (f.key === "expired" ? "  (passed)" : "");
 
     // person-facing
-    $("p-name").textContent = s.centerName;
-    $("p-address").textContent = s.centerAddress;
+    $("p-name").textContent = s.placeName;
+    $("p-address").textContent = s.placeAddr;
     $("p-until").textContent = fmtHM(to);
-    $("p-phone").textContent = s.centerPhone;
+    $("p-phone").textContent = "211";
 
     var lines = [];
-    lines.push("We called them at " + fmtHM(callMin) + ". They said they are open today.");
+    // an eligibility restriction goes first — it decides whether the rest applies
+    if (s.placeLimit) lines.push("This place serves " + s.placeLimit.split(" — ")[0].toLowerCase() + ".");
+    if (unsure) {
+      lines.push("We checked at " + fmtHM(callMin) + ", but nobody could confirm this place is " +
+                 "open today. Call or text 211 before you walk there.");
+    } else {
+      lines.push("We checked at " + fmtHM(callMin) + ". This place is open today.");
+    }
     if (s.walkIn === "yes") lines.push("You can walk in. You do not need an ID.");
     else if (s.walkIn === "no") lines.push("They asked that you check in at the front desk first.");
     else lines.push("We could not check whether you need an ID. If they ask for one and you do not have it, call 211.");
@@ -1100,8 +1393,9 @@
     });
 
     $("p-fine").textContent =
-      "This card was made from one phone call at " + fmtHM(callMin) + ". It is not a promise of a seat, and " +
-      "it is not a housing decision. Fictional scenario, synthetic data — SCEN-01.";
+      "This card was made from one call to 211 at " + fmtHM(callMin) + ". It is not a promise of a " +
+      "seat, and it is not a housing decision. The address is a real City of Birmingham cooling " +
+      "station; the situation it was made for is fictional (SCEN-01).";
   }
 
   // ---- plain-text export --------------------------------------------------
@@ -1111,24 +1405,26 @@
     var due = callMin + FOLLOW_UP_MIN;
     var yn = { yes: "yes", no: "no", unknown: "not confirmed", "": "not confirmed" };
     return [
-      "HANDOFF SUMMARY - SCEN-01 (SYNTHETIC SCENARIO)",
+      "HANDOFF SUMMARY - SCEN-01 (SYNTHETIC SCENARIO, REAL STATION)",
       "",
       "Situation: adult sleeping outdoors during a heat advisory.",
-      "Immediate need: shade and water. Resource type: cooling center.",
+      "Immediate need: shade and water. Resource type: cooling station.",
       "",
-      "CONFIRMED BY PHONE",
-      "  Center:        " + s.centerName,
-      "  Address:       " + s.centerAddress,
-      "  Phone:         " + s.centerPhone,
-      "  Open today:    yes, " + fmtHM(parseHM(s.hoursFrom)) + " - " + fmtHM(parseHM(s.hoursTo)),
+      "CONFIRMED BY CALLING 211",
+      "  Station:       " + s.placeName + (s.listed ? "" : " (not on the city list)"),
+      "  Address:       " + s.placeAddr,
+      "  Phone:         211 - the city publishes no number for the stations",
+      "  Open today:    " + (s.openToday === "unsure" ? "NOT confirmed by anyone" : "yes, confirmed"),
+      "  Open until:    " + fmtHM(parseHM(s.hoursTo)),
+      "  Eligibility:   " + (s.placeLimit || "not published"),
       "  Walk-in no ID: " + yn[s.walkIn],
       "  Water on site: " + yn[s.water],
-      "  Called:        " + fmtHM(callMin) + " by " + s.initials.toUpperCase(),
+      "  Called 211:    " + fmtHM(callMin) + " by " + s.initials.toUpperCase(),
       "  Spoke with:    " + (s.spokeWith || "not recorded"),
       "",
       "NOT KNOWN",
-      "  Current seat availability - no source here is live.",
-      "  Whether the directory listing is current beyond this call.",
+      "  Current capacity - no source here is live.",
+      "  Whether the city list is current beyond this call.",
       "  Anything about housing eligibility. This is heat relief, not a placement.",
       "",
       "OWNER AND FOLLOW-UP",
@@ -1136,14 +1432,71 @@
       "  Follow up by:  " + fmtHM(due) + " (2 hours)",
       "",
       "IF CLOSED ON ARRIVAL",
-      "  1. Next listed cooling center",
-      "  2. 211",
-      "  3. One Roof Coordinated Entry, if the need is shelter",
+      "  1. Call 211 again for another open station",
+      "  2. One Roof Coordinated Entry, if the need is shelter",
       "",
-      "SCEN-01 is fictional (is_synthetic = true). Capacity is not live",
-      "(capacity_is_not_live = true). This does not replace Coordinated Entry."
+      "Station list: City of Birmingham, birminghamal.gov/homelessness,",
+      "retrieved 28 Aug 2026. Stations activate at a 95F heat index; a listing",
+      "is not a schedule. SCEN-01 is fictional (is_synthetic = true) and",
+      "capacity is not live (capacity_is_not_live = true). This does not",
+      "replace Coordinated Entry."
     ].join("\n");
   }
+
+  // ---- build the station reference list and the select --------------------
+  (function buildStations() {
+    var list = $("station-list");
+    var sel = $("stationId");
+
+    AREAS.forEach(function (area) {
+      var inArea = STATIONS.filter(function (st) { return st.area === area; });
+      if (!inArea.length) return;
+
+      var group = document.createElement("div");
+      group.className = "area-group";
+      var h = document.createElement("span");
+      h.className = "area-name";
+      h.textContent = area;
+      group.appendChild(h);
+
+      var optGroup = document.createElement("optgroup");
+      optGroup.label = area;
+
+      inArea.forEach(function (st) {
+        var row = document.createElement("div");
+        row.className = "st-row";
+        var parts = [["st-name", st.name], ["st-addr", st.addr], ["st-hours", st.hours]];
+        if (st.limit) parts.push(["st-limit", st.limit]);
+        if (st.note) parts.push(["st-note", st.note]);
+        parts.forEach(function (p) {
+          var el = document.createElement("span");
+          el.className = p[0];
+          el.textContent = p[1];
+          row.appendChild(el);
+        });
+        group.appendChild(row);
+
+        var opt = document.createElement("option");
+        opt.value = st.id;
+        opt.textContent = st.name + (st.limit ? " (women and children only)" : "") + " — " + st.addr;
+        optGroup.appendChild(opt);
+      });
+
+      list.appendChild(group);
+      sel.appendChild(optGroup);
+    });
+
+    var extra = document.createElement("optgroup");
+    extra.label = "Other";
+    [["other", "Somewhere else 211 named (not on this list)"],
+     ["none", "211 could not name an open station"]].forEach(function (p) {
+      var opt = document.createElement("option");
+      opt.value = p[0];
+      opt.textContent = p[1];
+      extra.appendChild(opt);
+    });
+    sel.appendChild(extra);
+  })();
 
   // ---- wiring -------------------------------------------------------------
   $("confirm-form").addEventListener("input", render);
@@ -1152,15 +1505,12 @@
   $("demo-btn").addEventListener("click", function () {
     var n = nowMin() - 12;
     if (n < 0) n = 0;
-    $("centerName").value = "Fictional Cooling Center A";
-    $("centerPhone").value = "555-0100";
-    $("centerAddress").value = "100 Fictional Ave N, Birmingham";
-    $("hoursFrom").value = "09:00";
-    $("hoursTo").value = "19:00";
+    $("stationId").value = "firehouse";
+    $("hoursTo").value = "17:00";
     $("callTime").value = (Math.floor(n / 60) < 10 ? "0" : "") + Math.floor(n / 60) + ":" +
                           (n % 60 < 10 ? "0" : "") + (n % 60);
     $("initials").value = "RJ";
-    $("spokeWith").value = "front desk";
+    $("spokeWith").value = "211 specialist";
     $("ot-yes").checked = true;
     $("wi-yes").checked = true;
     $("wa-yes").checked = true;

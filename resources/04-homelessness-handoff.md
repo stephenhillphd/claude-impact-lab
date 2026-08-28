@@ -6,6 +6,7 @@ Challenge brief: [../challenges/04-homelessness-handoff.md](../challenges/04-hom
 
 - One Roof: https://www.oneroofonline.org/
 - One Roof Coordinated Entry: https://www.oneroofonline.org/coordinated-entry
+- City of Birmingham homelessness and cooling stations: https://www.birminghamal.gov/homelessness
 - City community resources: https://cobcd.com/communityresources/
 - United Way 211: https://www.uwca.org/programs/211-call-center/
 - Birmingham 2025-2029 Consolidated Plan (linked from the Action Plan page): https://cobcd.com/action-plan/
@@ -39,6 +40,8 @@ described — not a model answer, and not a starting point to copy.
 ## Download or API notes
 
 - One Roof, One Roof Coordinated Entry, City community resources, United Way 211, and the Consolidated Plan PDF are standard web pages or a downloadable PDF; read and cite them directly. No bulk download or API has been verified for these.
+- The City of Birmingham homelessness page lists the city's cooling stations with addresses and published hours. Three things to note before building on it: the stations are **activated**, not standing — they open only when the temperature or heat index reaches 95°F; the page publishes **no phone number** for any station; and it publishes **no eligibility information**, though at least one listed site (Pathways) serves women and children only. Treat it as a listing, not a schedule, and not a source of availability.
+- Jefferson County is not a source here. Neither the County Department of Health nor the County EMA publishes a cooling-location list; both refer onward, and the referral chain is circular. United Way 211 is the human fallback, but its own Central Alabama heat guidance lists no Birmingham addresses. The authoritative list is municipal.
 - HUD PIT and HIC data are available as downloadable reports and datasets at https://www.huduser.gov/portal/datasets/ahar.html; use the documented download links rather than assuming an API exists.
 - The HUD Coordinated Entry Core Elements document is a guidance PDF, not a data source; use it to understand the workflow, not to pull data.
 
