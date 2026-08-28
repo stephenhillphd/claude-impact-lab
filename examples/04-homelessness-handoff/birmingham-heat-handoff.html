@@ -778,8 +778,10 @@
     .cards { display: block; }
     .card-head { background: transparent; border-bottom: 1px solid #000; }
 
-    /* exactly one of the two outputs, chosen by the button that started the print */
-    :root[data-print="template"] .cards { display: none !important; }
+    /* exactly one of the two outputs, chosen by the button that started the print.
+       Printing the blank suppresses the whole of stage 3 — otherwise the lock
+       notice, or a half-filled card, comes out as a wasted first sheet. */
+    :root[data-print="template"] #stage-out { display: none !important; }
     :root[data-print="person"] #field-template { display: none !important; }
 
     #field-template {

@@ -7,6 +7,11 @@ advisory; needs shade and water; resource type is a cooling center).
 **Artifact:** [`birmingham-heat-handoff.html`](birmingham-heat-handoff.html), or the
 [published version](https://claude.ai/code/artifact/94ccf7a6-f9ac-4ce8-a9db-f4c2c8cfb091).
 
+**To hand round:** [`birmingham-cooling-field-card.pdf`](birmingham-cooling-field-card.pdf)
+is the blank template, ready to print in a stack.
+[`what-happens-now.pdf`](what-happens-now.pdf) is an eleven-slide walkthrough of
+how this was built and what the research turned up.
+
 > **The person is fictional. The cooling stations are real.**
 > `SCEN-01` comes from the event's synthetic dataset and describes nobody. The
 > eleven stations, their addresses, and their hours are transcribed from the
@@ -118,7 +123,10 @@ version cannot survive, and they are exactly what a volunteer hits at the end of
 a shift in August.
 
 `Print blank templates` prints only the blank. The person card's `Print` button
-prints only that card. A plain <kbd>⌘P</kbd> gives you the blank.
+prints only that card. A plain <kbd>⌘P</kbd> gives you the blank. If you just
+want paper without opening the page,
+[`birmingham-cooling-field-card.pdf`](birmingham-cooling-field-card.pdf) is the
+same blank, already rendered.
 
 ## How it maps to the quick start
 
